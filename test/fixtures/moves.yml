@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  desc: MyString
+  dmg: 1
+  element: MyString
+  champ: one
+
+two:
+  name: MyString
+  desc: MyString
+  dmg: 1
+  element: MyString
+  champ: two

@@ -5,4 +5,9 @@ Rails.application.routes.draw do
       resources :moves
     end
   end
+
+  namespace :api do
+    resources :villains
+  end
+
 end

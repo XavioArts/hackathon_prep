@@ -29,7 +29,6 @@ const Champs = () => {
                         <h2><Link to={`/champs/${champ.id}`} style={styles.link}>{champ.name}</Link></h2>
                         <p>Power level: {champ.power}</p>
                         <p>Ablilities: {renderMoves()}</p>
-                        {/* {useEffect(() => { renderMoves(champ.id); },[])} */}
                     </div>
                 )
             })
@@ -38,11 +37,29 @@ const Champs = () => {
     
     // addChamp updateChamp and deleteChamp will be here
 
+    const addChamp = (champ) => {
+        setChamps([...champs, champ]);
+    };
+
+    const updateChamp = (champion) => {
+        let updated = champs.map((champ) => (champ.id === champion.id ? champion : champ));
+        setChamps(updated);
+    };
+
+    const deleteChamp = async (id) => {
+        await axios.delete(`/api/champs/${id}`);
+        let newChamps = champs.filter((champ) => champ.id !== id);
+        setChamps(newChamps);
+    };
+
     return (
-        <div>
+        <div style={styles.center}>
             <h1>Champions of the Multiverse</h1>
             <h3>Choose your hero:</h3>
             {renderChamps()}
+            <div style={styles.containerNew}>
+                <Link to="/champs/new" style={{textDecoration: "none", color: "black"}}>Add a Hero from your World</Link>
+            </div>
         </div>
     )
 };
@@ -52,15 +69,32 @@ const styles = {
         backgroundColor: "blue",
         margin: "20px",
         padding: "10px",
-        maxWidth: "800px",
+        width: "700px",
+        maxWidth: "700px",
         display: "flex",
         justifyContent: "space-evenly",
         alignItems: "center",
+    },
+    containerNew: {
+        backgroundColor: "gold",
+        margin: "20px",
+        padding: "10px",
+        width: "500px",
+        maxWidth: "500px",
+        // display: "flex",
+        // justifyContent: "space-evenly",
+        // alignItems: "center",
     },
     link: {
         textDecoration: "none",
         color: "gold",
         margin: "1em"
+    },
+    center: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column"
     }
 }
 

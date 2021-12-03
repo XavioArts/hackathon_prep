@@ -25,6 +25,8 @@ function App() {
         <Route path="/champs/:champ_id/moves/:id" element={<Move/>} />
         <Route path="/champs/:champ_id/moves/:id/edit" element={<MoveEdit/>} />
       </Routes>
+      <br />
+      <NavBar />
     </div>
   );
 }

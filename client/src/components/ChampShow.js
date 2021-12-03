@@ -24,7 +24,7 @@ const ChampShow = () => {
         return moves.map((move) => {
             return (
                 <div style={styles.container}>
-                    <h3><Link to={`/champs/${champion.id}/moves/${move.id}`} style={styles.link}>{move.name}</Link></h3>
+                    <h3><Link to={`/champs/${champion.id}/moves/${move.id}`} state={{move}} style={styles.link}>{move.name}</Link></h3>
                     <p>Damage: {move.dmg}</p>
                 </div>
             );
@@ -39,7 +39,7 @@ const ChampShow = () => {
             <h4>Health: {champion.health}</h4>
             <h4>Power Level: {champion.power}</h4>
             {/* link to edit here  */}
-            <Link to={`/champs/${champion.id}/edit`}>Edit hero?</Link>
+            <Link to={`/champs/${champion.id}/edit`} state={{champion}}>Edit hero?</Link>
             <h2>{champion.name}'s Abilities</h2>
             {renderMoves()}
             {/* link to new move here  */}

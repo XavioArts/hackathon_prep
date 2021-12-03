@@ -24,7 +24,7 @@ const ChampShow = () => {
         return moves.map((move) => {
             return (
                 <div style={styles.container}>
-                    <h4><Link to={`/champs/${champion.id}/moves/${move.id}`} style={styles.link}>{move.name}</Link></h4>
+                    <h3><Link to={`/champs/${champion.id}/moves/${move.id}`} style={styles.link}>{move.name}</Link></h3>
                     <p>Damage: {move.dmg}</p>
                 </div>
             );
@@ -44,7 +44,7 @@ const ChampShow = () => {
             {renderMoves()}
             {/* link to new move here  */}
             <div style={styles.containerNew}>
-                <Link to={`/champs/${champion.id}/new`} style={styles.link}>Add a new move/ability</Link>
+                <Link to={`/champs/${champion.id}/moves/new`} style={styles.link}>Add a new move/ability</Link>
             </div>
         </div>
     )

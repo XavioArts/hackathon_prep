@@ -8,8 +8,8 @@ class Api::VillainsController < ApplicationController
     def create
         @villain = Villain.new(set_params)
         if @villain.save
-            @villain.henchmen.new(name: "Number 1", intel: 1)
-            @villain.henchmen.new(name: "Number 2", intel: 2)
+            @villain.henchmen.create(name: "Number 1", intel: 1)
+            @villain.henchmen.create(name: "Number 2", intel: 2)
             ## since im not doing a henchmen controller i will seed dummy hemnchmen for new
             render json: @villain, include: [:henchmen]
         else
@@ -39,7 +39,7 @@ class Api::VillainsController < ApplicationController
         params.require(:villain).permit(:name, :health, :slogan, :evil)
     end
 
-    def set_champ
+    def set_villain
         @villain = Villain.find(params[:id])
     end
 end

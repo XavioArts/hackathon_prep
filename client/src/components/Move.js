@@ -24,7 +24,9 @@ const Move = () => {
             <p>Element: {element}</p>
             <h4>Description:</h4>
             <p>{desc}</p>
-            <button onClick={()=>navigate(`/champs/${champ_id}/moves/${id}/edit`)}>Edit move?</button>
+            {/* <button onClick={()=>navigate(`/champs/${champ_id}/moves/${id}/edit`)}>Edit move?</button> */}
+            <Link to={`/champs/${champ_id}/moves/${id}/edit`} state={{move}}>Edit move?</Link>
+            <br />
             <button onClick={()=>handleDelete()}>Delete move?</button>
         </div>
     )

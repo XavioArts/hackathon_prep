@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 const MoveNew = () => {
 
@@ -28,6 +29,7 @@ const MoveNew = () => {
     return (
         <div>
             <h1>Add a New Ability</h1>
+            <Link to={`/champs/${id}`}>Go back</Link>
             <p>Please enter move info</p>
             <form onSubmit={handleSubmit}>
                 <p>Move name:</p>

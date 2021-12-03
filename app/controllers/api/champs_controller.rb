@@ -3,7 +3,7 @@ class Api::ChampsController < ApplicationController
     before_action :set_champ, only: [:destroy, :show, :update]
     
     def index
-        render json: Champ.all
+        render json: Champ.all, include: [:moves]
     end
 
     def create

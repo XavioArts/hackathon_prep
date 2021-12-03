@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Champs from './components/Champs';
+import ChampShow from './components/ChampShow';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/champs" element={<Champs/>} />
+        <Route path="/champs/:id" element={<ChampShow/>} />
       </Routes>
     </div>
   );

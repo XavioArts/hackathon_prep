@@ -37,20 +37,20 @@ const Champs = () => {
     
     // addChamp updateChamp and deleteChamp will be here
 
-    const addChamp = (champ) => {
-        setChamps([...champs, champ]);
-    };
+    // const addChamp = (champ) => {
+    //     setChamps([...champs, champ]);
+    // };
 
-    const updateChamp = (champion) => {
-        let updated = champs.map((champ) => (champ.id === champion.id ? champion : champ));
-        setChamps(updated);
-    };
+    // const updateChamp = (champion) => {
+    //     let updated = champs.map((champ) => (champ.id === champion.id ? champion : champ));
+    //     setChamps(updated);
+    // };
 
-    const deleteChamp = async (id) => {
-        await axios.delete(`/api/champs/${id}`);
-        let newChamps = champs.filter((champ) => champ.id !== id);
-        setChamps(newChamps);
-    };
+    // const deleteChamp = async (id) => {
+    //     await axios.delete(`/api/champs/${id}`);
+    //     let newChamps = champs.filter((champ) => champ.id !== id);
+    //     setChamps(newChamps);
+    // };
 
     return (
         <div style={styles.center}>

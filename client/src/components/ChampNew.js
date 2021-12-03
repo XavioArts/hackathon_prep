@@ -30,19 +30,30 @@ const ChampNew = () => {
             <p>Please enter your new champion info</p>
             <p>*Note: all fields must be filled</p>
             {/* form will go here  */}
-            <form onSubmit={handleSubmit}>
-                <p>Champion name:</p>
-                <input value={name} onChange={(e) => setName(e.target.value)} />
-                <p>Champion alignment:</p>
-                <input value={align} onChange={(e) => setAlign(e.target.value)} />
-                <p>How much health does your hero have? *only numbers allowed</p>
-                <input value={health} onChange={(e) => setHealth(e.target.value)} />
-                <p>What is your champion's power level? *only numbers allowed</p>
-                <input value={power} onChange={(e) => setPower(e.target.value)} />
-                <button>Create Hero</button>
-            </form>
+            <div style={styles.container}>
+                <form onSubmit={handleSubmit}>
+                    <p>Champion name:</p>
+                    <input value={name} onChange={(e) => setName(e.target.value)} />
+                    <p>Champion alignment:</p>
+                    <input value={align} onChange={(e) => setAlign(e.target.value)} />
+                    <p>How much health does your hero have? *only numbers allowed</p>
+                    <input value={health} onChange={(e) => setHealth(e.target.value)} />
+                    <p>What is your champion's power level? *only numbers allowed</p>
+                    <input value={power} onChange={(e) => setPower(e.target.value)} />
+                    <button>Create Hero</button>
+                </form>
+            </div>
         </div>
     );
 };
+
+const styles = {
+    container: {
+        backgroundColor: "tan",
+        width: "800px",
+        margin: "auto",
+        padding: "15px"
+    }
+}
 
 export default ChampNew;

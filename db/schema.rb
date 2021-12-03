@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_02_024511) do
+ActiveRecord::Schema.define(version: 2021_12_03_183837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 2021_12_02_024511) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "henchmen", force: :cascade do |t|
+    t.string "name"
+    t.integer "intel"
+    t.bigint "villain_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["villain_id"], name: "index_henchmen_on_villain_id"
+  end
+
   create_table "moves", force: :cascade do |t|
     t.string "name"
     t.string "desc"
@@ -35,5 +44,16 @@ ActiveRecord::Schema.define(version: 2021_12_02_024511) do
     t.index ["champ_id"], name: "index_moves_on_champ_id"
   end
 
+  create_table "villains", force: :cascade do |t|
+    t.string "name"
+    t.string "slogan"
+    t.integer "evil"
+    t.integer "health"
+    t.string "icon"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "henchmen", "villains"
   add_foreign_key "moves", "champs"
 end

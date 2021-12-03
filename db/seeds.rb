@@ -8,10 +8,14 @@
 
 require 'faker'
 oldDb = Champ.all.length
+oldVil = Villain.all.length
 
 Champ.destroy_all
 # make sure all champs and moves are deleted first
+Villain.destroy_all
 puts "#{oldDb} champions deleted"
+puts "#{oldVil} villains deleted"
+puts "db clear"
 
 3.times do
     name1 = Faker::JapaneseMedia::OnePiece.character
@@ -65,4 +69,23 @@ puts "#{oldDb} champions deleted"
 
 end
 
+## seed the villains now BONUS
+slogans = [Faker::Quote.most_interesting_man_in_the_world, Faker::Quote.yoda, Faker::Quote.robin, Faker::ChuckNorris.fact]
+
+5.times do
+    vil = Villain.create(
+        name: Faker::DcComics.villain,
+        slogan: slogans.sample,
+        evil: rand(100),
+        health: rand(500),
+    )
+    3.times do
+        vil.henchmen.create(
+            name: Faker::FunnyName.two_word_name,
+            intel: rand(10),
+        )
+    end
+end
+
 puts "seeded #{Champ.all.length} champions"
+puts "seeded #{Villain.all.length} villains"
